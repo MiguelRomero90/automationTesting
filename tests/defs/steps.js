@@ -17,17 +17,16 @@ When(/^scroll to reach out to us$/, () => {
 });
 
 When(/^click on (.*)$/, (link) =>{
-	//const elem = $("//a[contains(.,"+tab+"')]");
 	const elem = $('a='+link);
 	elem.click();
 });
+
 When(/^fill (\S+) field$/, (field) =>{
 	
 	var input=$('.'+field).$('.wpcf7-text');
 	if(field.match('your-message')){
 		input=$('.'+field).$('.wpcf7-textarea');
-	}
-		
+	}		
 	switch (field){
 		case 'your-name':
 			input.addValue('Miguel Romero');
@@ -46,7 +45,6 @@ When(/^fill (\S+) field$/, (field) =>{
 		 	break;
 	}
 });
-
 
 Then(/^page title should be (.*)$/, (expectedTitle) =>{
 	const title = browser.getTitle();
